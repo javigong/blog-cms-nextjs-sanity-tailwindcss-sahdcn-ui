@@ -5,6 +5,8 @@ import Link from "next/link";
 import { simpleBlogCard } from "./lib/interface";
 import { client, urlFor } from "./lib/sanity";
 
+export const revalidate = 60 // invalidate every minute
+
 async function getData() {
   const query = `*[_type == 'blog'] | order(_createdAt desc) {
   title,
